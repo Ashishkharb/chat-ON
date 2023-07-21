@@ -1,4 +1,4 @@
-import { Alert, Button, Divider, Drawer } from 'rsuite';
+import { Alert, Button, Divider, Drawer, Icon, Tag } from 'rsuite';
 import { useProfile } from '../../context/profile.context';
 import EditableInput from '../EditableInput';
 import { database } from '../../misc/firebase';
@@ -26,6 +26,9 @@ const Dashboard = ({ onSignOut }) => {
 
             <Drawer.Body>
                 <h3>Hey, {profile.name}</h3>
+                <Tag color="blue">
+                    <Icon icon="google" /> Connected
+                </Tag>
                 <Divider />
                 <EditableInput
                     name="nickname"
