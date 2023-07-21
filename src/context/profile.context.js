@@ -12,7 +12,7 @@ export const ProfileProvider = ({ children }) => {
         let userRef;
         const authUnsub = auth.onAuthStateChanged(authObj => {
             if (authObj) {
-                userRef = database.ref(`/profiles/${authObj.uid}`)
+                userRef = database.ref(`/profiles/${authObj.uid}`);
                 userRef.on('value', snap => {
                     const { name, createdAt } = snap.val();
                     const data = {
@@ -29,7 +29,7 @@ export const ProfileProvider = ({ children }) => {
                     userRef.off();
                 }
                 setProfile(null);
-                setIsLoading(true);
+                setIsLoading(false);
             }
         });
         return () => {
