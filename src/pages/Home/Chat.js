@@ -5,6 +5,8 @@ import ChatBottom from '../../components/chat-window/bottom';
 import { Loader } from 'rsuite';
 import { useRooms } from '../../context/rooms.context';
 import { CurrentRoomProvider } from '../../context/current-room.context';
+import { transfromToArr } from '../../misc/helpers';
+import { auth } from '../../misc/firebase';
 
 const Chat = () => {
     const { chatId } = useParams();
@@ -12,7 +14,7 @@ const Chat = () => {
 
     if (!rooms) {
         return (
-            <Loader center verticl size="md" content="Loading" speed="slow" />
+            <Loader center vertical size="md" content="Loading" speed="slow" />
         );
     }
 
@@ -23,9 +25,15 @@ const Chat = () => {
     }
 
     const { name, description } = currentRoom;
+
+    const admins = transfromToArr(currentRoom.admins);
+    const isAdmin = admins.includes(auth.currentUser.uid);
+
     const currentRoomData = {
         name,
         description,
+        admins,
+        isAdmin
     };
 
     return (
