@@ -1,4 +1,4 @@
-import { Badge, Button, Tooltip, Whisper } from 'rsuite';
+import { Badge, Tooltip, Whisper } from 'rsuite';
 import { usePresence } from '../misc/custom-hooks';
 
 const getColor = presence => {
