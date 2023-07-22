@@ -79,7 +79,7 @@ const Messages = () => {
             return msg;
         });
 
-        Alert.info(alertMsg, 4000);
+        Alert.info(alertMsg);
     }, []);
 
     const handleDelete = useCallback(async (msgId)=>{
@@ -105,7 +105,7 @@ const Messages = () => {
 
         try {
             await database.ref().update(updates);
-            Alert.info('Message has been deleted',4000)
+            Alert.info('Message has been deleted',2000)
         } catch (err) {
             Alert.error(err.message,4000);
         }
