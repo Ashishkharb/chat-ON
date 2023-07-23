@@ -76,7 +76,7 @@ const AttachmentBtnModant = ({afterUpload}) => {
                 </Modal.Body>
 
                 <Modal.Footer>
-                    <Button block disabled={isLoading} onClick={onUpload}>
+                    <Button block disabled={isLoading} onClick={onUpload} color='blue'>
                         Send to chat
                     </Button>
                     <div className="text-right mt-2">

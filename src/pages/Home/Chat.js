@@ -7,10 +7,15 @@ import { useRooms } from '../../context/rooms.context';
 import { CurrentRoomProvider } from '../../context/current-room.context';
 import { transfromToArr } from '../../misc/helpers';
 import { auth } from '../../misc/firebase';
+import { useEffect } from 'react';
 
 const Chat = () => {
     const { chatId } = useParams();
     const rooms = useRooms();
+
+    useEffect(()=>{
+        window.chatId = chatId;
+    },[chatId])
 
     if (!rooms) {
         return (
